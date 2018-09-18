@@ -1,0 +1,20 @@
+<div class="sidebar-sticky" v-if="boards">
+    <div id="pagination">
+        <button @click="prevPage()" :disabled="pageNumber==0" class="btn btn-outline-secondary btn-sm">
+            Previous
+        </button>
+        <button @click="nextPage()" :disabled="pageNumber>pageCount-1" class="btn btn-outline-secondary btn-sm">
+            Next
+        </button>
+    </div>
+    <ul class="nav flex-column" v-for="board in paginatedData">
+        <li class="nav-item ml-1 mr-2">
+            <a id="boardList" type="button" class="nav-link mb-1" v-bind:boardID="board.id" @click="changeBoard(board.id)">{{board.name}}</a>
+        </li>       
+    </ul>
+    <div id="addBoard">
+        <!-- <button class="d-flex-center btn btn-secondary btn-md mt-3" @click="getBoardForm(index)" :index="index" :boardID="boardID">Add Board</button> -->
+        <router-link class="d-flex-center btn btn-secondary btn-md mt-3" to="/boardform" :boardsList="boardsList">Add Board</router-link>
+    </div>
+
+</div>

@@ -1,0 +1,15 @@
+#boardList{
+    width: 94%;
+    height: 40px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
+}
+#addBoard{
+    margin-left: 12%;
+}
+#pagination{
+    margin-left: 8%;
+    margin-bottom: 10px;
+}

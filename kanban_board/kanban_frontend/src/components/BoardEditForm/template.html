@@ -1,0 +1,23 @@
+<div class="box mt-3" v-if="isEdit">
+  <div class="card">
+    <div class="card-header">
+      List Form
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" v-model="name">
+        </div>
+        <p>
+          <button @click="editBoard();toggleEdit()" class="btn btn-primary btn-sm" type="button">Submit</button>
+          <button @click="toggleEdit()" class="btn btn-secondary btn-sm" type="button">Cancel</button>
+          <!-- <button class="btn btn-primary btn-sm" @click="editBoard();toggleEdit()" type="button">Submit</button> -->
+          <!-- <router-link class="btn btn-success btn-sm mr-3" to="/list" @click="addBoard">Submit</router-link> -->
+          <!-- <button class="btn btn-danger btn-sm text-white" @click="toggleEdit()" type="button">Cancel</button> -->
+          <!-- <router-link class="btn btn-danger" to="/list">Cancel</router-link> -->
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

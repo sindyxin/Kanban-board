@@ -1,0 +1,14 @@
+<div v-if="lists">
+    <ul v-for="list in lists">
+        <li><list-component v-bind:listID="list.id" v-bind:boardID="list.board" v-bind:list="list"></list-component></li>
+    </ul>
+</div>
+
+        <!-- <cards-component v-bind:listID="list.id"></cards-component>
+        <button class="btn btn-primary" @click="toggle" v-bind:listID="list.id">Add Card</button> -->
+
+        <!-- <router-link class="btn btn-primary mr-3" v-bind:listID='list.id' :to="'/lists/'+list.id+'/cardform'">Add Card</router-link> -->
+        <!-- <div v-if="isShow">
+            <cardform-component v-bind:listID="list.id" v-bind:boardID="list.board_id"></cardform-component>
+                <!-- <cardform-component v-bind:boardID="`${boardID}`"></cardform-component> 
+        </div>-->

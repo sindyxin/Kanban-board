@@ -1,0 +1,16 @@
+<div v-if="card" id="card">
+    <p class="card-header bg-light">{{card.name}}</p> 
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight"><button @click="deleteItem()" type="button" class="btn btn-danger btn-sm">Delete</button></div>
+        <div class="p-2 bd-highlight"><button @click="toggleEdit(card)" type="button" class="btn btn-warning btn-sm">Edit</button></div>
+        <!-- v-bind:cardID='card.id'  v-bind:listID="card.card_list" v-bind:boardID="card.card_list.board"  -->
+        <div class="p-2 bd-highlight"><button @click="toggle" type="button" class="btn btn-info btn-sm" v-bind:cardID="card.id">Comments</button></div>
+    </div>
+    <div v-if="isShow">
+        <comments-component v-bind:cardID='card.id' class="card-body"></comments-component>
+    </div>
+    <div v-if="isEdit">
+        <cardeditform-component v-bind:card="card" v-bind:cardID='card.id' v-bind:listID='card.card_list' v-bind:boardID="boardID"></cardeditform-component>
+    </div> 
+
+</div>

@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <boards-component :boardsList="boards" :boardID="boardID" :size="10"></boards-component>
+        </nav>
+        <main role="main" class="container col-md-11 ml-sm-auto col-lg-11 pt-3" v-if="board">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h3>{{board.name}}</h3>
+                <div class="btn-group mr-2">
+                    <router-link class="btn btn-sm btn-outline-secondary" v-bind:boardID='boardID' :to="'/boards/'+board.id+'/listform'">Add List</router-link> 
+                    <button type="button" class="btn btn-sm btn-outline-secondary" v-bind:boardID='boardID' v-bind:board="board" @click="toggleEdit(board)">Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger" v-bind:boardID='boardID' @click="deleteBoard">Delete</button>
+                </div>                           
+            </div>
+            <div v-if="isEdit">
+                <boardeditform-component v-bind:board="board" v-bind:boardID="board.id"></boardeditform-component>
+            </div>  
+            <lists-component v-bind:boardID="board.id"></lists-component>
+            
+        </main>
+        <main role="main" class="container col-md-11 ml-sm-auto col-lg-11 pt-3" v-else>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h2>Board is not exit or deleted!</h2>
+            </div>
+        </main>
+
+    </div>
+</div>
+
+<!-- <div class="box">
+    <div class="card" v-if="board"> -->
+        <!-- <div class="card" v-for="item in results.lists" :item='item'> -->
+        <!-- <div class="card-header bg-dark" id="listcard">
+            <span class="navbar-brand mb-0 h1"><ion-icon name="list-box" class="mr-2"></ion-icon>{{board.name}}</span>
+        </div>
+        <div class="card-body">
+            <lists-component v-bind:boardID="board.id"></lists-component>
+            <router-link class="btn btn-primary mr-3" v-bind:boardID='boardID' :to="'/boards/'+board.id+'/listform'">Add List</router-link>           
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="card" v-if="board">              
+    <div class="card-header bg-dark" id="listcard">
+        <span class="navbar-brand mb-0 h1"><ion-icon name="list-box" class="mr-2"></ion-icon>{{board.name}}</span>
+    </div>
+    <div class="card-body">
+        <lists-component v-bind:boardID="board.id"></lists-component>
+        <router-link class="btn btn-primary mr-3" v-bind:boardID='boardID' :to="'/boards/'+board.id+'/listform'">Add List</router-link>           
+    </div>
+</div> -->

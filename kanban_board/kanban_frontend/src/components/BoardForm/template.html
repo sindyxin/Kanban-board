@@ -1,0 +1,21 @@
+<div class="box mt-3">
+  <div class="card">
+    <div class="card-header">
+      Board Form
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" v-model="name">
+        </div>
+        <p>
+          <button class="btn btn-primary btn-sm" @click="addBoard()" type="button">Submit</button>
+          <!-- <router-link class="btn btn-success btn-sm mr-3" to="/list" @click="addBoard">Submit</router-link> -->
+          <a class="btn btn-danger btn-sm text-white" @click="$router.go(-1)">Cancel</a>
+          <!-- <router-link class="btn btn-danger" to="/list">Cancel</router-link> -->
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

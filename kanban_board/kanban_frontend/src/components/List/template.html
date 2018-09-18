@@ -1,0 +1,21 @@
+<div v-if="list">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h6>{{list.name}}</h6>
+        <div class="btn-group mr-2">
+            <button class="btn btn-outline-primary btn-sm" @click="toggle" v-bind:listID="list.id" v-bind:boardID="list.board">Add Card</button>
+            <button @click="toggleEdit(list)" type="button" class="btn btn-sm btn-outline-success">Edit</button>
+            <button @click="deleteItem()" type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+        </div>     
+    </div>
+    <!-- List Edit Form -->
+    <div v-if="isEdit" class="mb-3">
+        <listeditform-component v-bind:list="list" v-bind:listID='list.id' v-bind:boardID="list.board"></listeditform-component>
+    </div> 
+    <cards-component v-bind:listID="list.id" v-bind:boardID="list.board" :list="list"></cards-component>
+    <div v-if="isShow">
+        <cardform-component v-bind:listID="list.id" v-bind:boardID="list.board"></cardform-component>
+    </div>
+    <hr class="text-black">
+   
+</div>
+

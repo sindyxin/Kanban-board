@@ -1,0 +1,116 @@
+{
+  "name": "Board Name",
+  "lists": [{
+      "name": "List Name 1",
+      "cards": [{
+          "name": "Card Name 1",
+          "description": "Card Description 1",
+          "assigned": [{
+              "username": "User Name 1"
+            },
+            {
+              "username": "User Name 2"
+            }
+          ],
+          "comments": [{
+              "body": "Comment Body 1",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:19"
+            },
+            {
+              "body": "Comment Body 2",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:40"
+            }
+          ]
+        },
+        {
+          "name": "Card Name 2",
+          "description": "Card Description 1",
+          "assigned": [{
+              "username": "User Name 1"
+            },
+            {
+              "username": "User Name 2"
+            }
+          ],
+          "comments": [{
+              "body": "Comment Body 1",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:19"
+            },
+            {
+              "body": "Comment Body 2",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:40"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "List Name 2",
+      "cards": [{
+          "name": "Card Name 1",
+          "description": "Card Description 1",
+          "assigned": [{
+              "username": "User Name 1"
+            },
+            {
+              "username": "User Name 2"
+            }
+          ],
+          "comments": [{
+              "body": "Comment Body 1",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:19"
+            },
+            {
+              "body": "Comment Body 2",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:40"
+            }
+          ]
+        },
+        {
+          "name": "Card Name 1",
+          "description": "Card Description 1",
+          "assigned": [{
+              "username": "User Name 1"
+            },
+            {
+              "username": "User Name 2"
+            }
+          ],
+          "comments": [{
+              "body": "Comment Body 1",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:19"
+            },
+            {
+              "body": "Comment Body 2",
+              "user": {
+                "username": "User Name 1"
+              },
+              "timestamp": "2018-08-24 10:40"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

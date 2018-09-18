@@ -1,0 +1,21 @@
+<div class="box" v-if="isEdit">
+  <div class="card">
+    <div class="card-header">
+      List Form
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" v-model="name">
+        </div>
+        <p>
+          <!-- <router-link class="btn btn-success mr-3" :to="`/lists`" v-bind:boardID="boardID" @click.prevent="addList" type="submit">Add List</router-link> -->
+          <button class="btn btn-primary btn-sm" @click="editList();toggleEdit()" type="button">Submit</button>
+          <button class="btn btn-secondary btn-sm" @click="toggleEdit()" type="button">Cancel</button>
+          <!-- <router-link class="btn btn-danger" :to="`/boards/${boardID}`">Cancel</router-link> -->
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
