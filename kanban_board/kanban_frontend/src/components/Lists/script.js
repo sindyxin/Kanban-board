@@ -32,7 +32,7 @@ export default {
           this.lists = getListsResponse.data
           // await this.$store.dispatch('loadLists', this.boardID)
         } catch (error) {
-          console.log(error);
+          console.log(error)
         }
          
       }

@@ -6,11 +6,18 @@ import getFunctions from '../../api_functions/get_functions'
 export default {
     name: 'CardsComponent',
     props:['listID', 'boardID', 'list'],
-    data () {
+    data() {
       return {
-        cards:''       
+        cards: []
       }
     },
+    // computed: {
+    //   cardsList() {
+    //     return this.$store.getters.cards
+    //     // get(){return this.$store.getters.cards},
+    //     // set(){return this.$store.commit('SET_CARDS', this.cards)}
+    //   }
+    // },
     components:{
       'card-component':CardComponent
     },
@@ -22,37 +29,20 @@ export default {
         'loadCard',
         'addCard'
       ]),
-      async loadData() {
-        // this.$store.dispatch('loadCards', this.listID)
+      async loadCards () {
         try {
-          const getCardsResponse = await getFunctions.getCardsInList(this.listID)
-          this.cards = getCardsResponse.data
-          //this.$store.commit('SET_CARDS', this.cards)
-          // await this.$store.dispatch('loadCards', this.listID)
+          const cardsResponse = await getFunctions.getCardsInList(this.listID)
+          // this.cards = await this.$store.dispatch('loadCards', this.listID)
+          this.cards = cardsResponse.data
+          console.log('cards-c', this.cards)
+          this.$router.replace(`/boards/${this.boardID}`)
+          
         } catch (error) {
-          this.$store.dispatch('error', error)
-          console.log(error);
-        }         
+          console.log(error)
+        }
       }
     },
     created () {
-      this.loadData();
-    },
-
+      this.loadCards();
+    }
 }
-
-      // loadData(){
-      //   this.$store.dispatch('loadCards', this.listID)
-      // }
-      // loadData () {
-      //   axios.get(`http://127.0.0.1:8000/api/all_lists/${this.listID}/cards`)
-      //     .then((response)=>{       
-      //       this.cards = response.data
-      //     })
-      //     .catch(function(error){
-      //       console.log(error);
-      //     })
-      //     .then(function(){
-  
-      //     });
-      // }

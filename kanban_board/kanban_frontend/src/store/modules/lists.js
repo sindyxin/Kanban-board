@@ -38,6 +38,9 @@ const getters = {
       }
     })
     return lists
+  },
+  cardsInList: (state, getters) => (listID) => {
+    return getters.list(listID).cards
   }
 
 }
@@ -51,7 +54,7 @@ const mutations = {
   },
 
   [SET_LISTS] (state, lists) {
-    Vue.set(state, 'lists', lists)
+    state.lists = lists
   },
   [SET_LIST] (state, list) {
     Vue.set(state.lists, list.id, list)
@@ -93,13 +96,20 @@ const actions = {
       let getListResponse = await getFunctions.getListByID(listID)
       console.log('get-list', getListResponse.data)
       commit(SET_LIST, getListResponse.data)
-      // if (!getters.listIDs.includes(listID)) {
-      //   commit(ADD_LIST_ID, getListResponse.data.id)
-      // }
+      if (!getters.listIDs.includes(listID)) {
+        commit(ADD_LIST_ID, getListResponse.data.id)
+      }
     } catch (error) {
       dispatch('error', error, { root: true })
     }
   }
+  // async loadCardsInList ({ getters, dispatch }, listID) {
+  //   try {
+  //     await getFunctions.getCardsInList(listID)
+  //   } catch (error) {
+  //     dispatch('error', error, { root: true })
+  //   }
+  // }
 }
 
 export default ({

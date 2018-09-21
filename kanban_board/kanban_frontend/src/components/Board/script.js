@@ -40,8 +40,8 @@ export default {
       try {
         const getBoardResponse = await getFunctions.getBoardByID (this.boardID)
         this.board = getBoardResponse.data
-        await this.$store.dispatch('loadBoard', this.boardID)
-        console.log("board-component-kjdskjd", this.$store.getters.boards)
+        // await this.$store.dispatch('loadBoard', this.boardID)
+        // console.log("board-component-kjdskjd", this.$store.getters.boards)
       } catch (error) {
         console.log(error);
       }      

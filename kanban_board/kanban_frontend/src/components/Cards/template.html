@@ -1,4 +1,4 @@
-<div v-if="cards">
+<div>
     <ul v-for="card in cards">
         <li><card-component v-bind:boardID='boardID' v-bind:cardID='card.id' v-bind:listID="card.card_list" class="card-body"></card-component></li>
     </ul>

@@ -52,7 +52,7 @@ const mutations = {
     state.boardIDs.push(boardID)
   },
   [ADD_BOARD] (state, board) {
-    state.board[board.id] = board
+    state.boards.push(board)
   },
   [SET_BOARDS] (state, boards) {
     Vue.set(state, 'boards', boards)
@@ -91,15 +91,15 @@ const actions = {
       dispatch('error', error, { root: true })
     }
   },
-  // async loadBoards (commit, dispatch) {
-  //   try {
-  //     let getResponse = await getFunctions.getAllBoards()
-  //     commit(SET_BOARDS, getResponse.data)
-  //     // console.log('boards-store-getresponse', commit(SET_BOARDS, getResponse.data))
-  //   } catch (error) {
-  //     dispatch('', error, { root: true })
-  //   }
-  // },
+  async loadAllBoards (commit, dispatch) {
+    try {
+      let getAllBoardsResponse = await getFunctions.getAllBoards()
+      commit(SET_BOARDS, getAllBoardsResponse.data)
+      // console.log('boards-store-getresponse', commit(SET_BOARDS, getResponse.data))
+    } catch (error) {
+      dispatch('', error, { root: true })
+    }
+  },
   async loadBoard ({commit, dispatch, getters}, boardID) {
     try {
       let getBoardResponse = await getFunctions.getBoardByID(boardID)

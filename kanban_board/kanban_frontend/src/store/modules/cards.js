@@ -48,9 +48,11 @@ const mutations = {
     state.cardIDs.push(cardID)
   },
   [ADD_CARD] (state, card) {
-    state.cards[card.id] = card
+    state.cards.push(card)
   },
-
+  // [ADD_CARD] (state, card) {
+  //   state.cards[card.id] = card
+  // },
   [SET_CARDS] (state, cards) {
     state.cards = cards
     // Vue.set(state, 'cards', cards)
@@ -64,35 +66,40 @@ const mutations = {
 }
 
 const actions = {
-  async loadCards ({commit, dispatch, getters}, listID) {
+  async loadCards ({commit, dispatch}, listID) {
     try {
       const getCardsResponse = await getFunctions.getCardsInList(listID)
+      console.log('cardsstore', getCardsResponse.data)
       this.cards = getCardsResponse.data
-      commit(SET_CARDS, this.cards)
+      commit(SET_CARDS, getCardsResponse.data)
     } catch (error) {
       dispatch('error', error, { root: true })
     }
   },
 
-  async loadCard ({commit, dispatch, getters}, cardID) {
-    try {
-      let getCardResponse = await getFunctions.getCardByID(cardID)
-      commit(SET_CARD, getCardResponse.data)
+  // async loadCard ({commit, dispatch, getters}, cardID) {
+  //   try {
+  //     let getCardResponse = await getFunctions.getCardByID(cardID)
+  //     commit(SET_CARD, getCardResponse.data)
 
-      if (!getters.cardIDs.includes(cardID)) {
-        commit(ADD_CARD_ID, getCardResponse.data.id)
-      }
-    } catch (error) {
-      dispatch('error', error, { root: true })
-    }
-  },
+  //     if (!getters.cardIDs.includes(cardID)) {
+  //       commit(ADD_CARD_ID, getCardResponse.data.id)
+  //     }
+  //   } catch (error) {
+  //     dispatch('error', error, { root: true })
+  //   }
+  // },
 
   async addCard ({commit, dispatch}, formData) {
     try {
       console.log(formData)
       const postCardResponse = await postFunctions.postCard(formData)
+      console.log('card add action', postCardResponse)
       commit(ADD_CARD, postCardResponse.data)
+      console.log(postCardResponse.data)
+      console.log('after commit add_card')
       commit(ADD_CARD_ID, postCardResponse.data.id)
+      console.log('after commit add_card_id')
       // try load cards data
     } catch (error) {
       dispatch('error', error, { root: true })
